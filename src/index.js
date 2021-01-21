@@ -4,10 +4,16 @@ import ReactDOM from 'react-dom'
 
 class App extends React.Component{
 
-    constructor(props){
-        super(props)
+    state = { lat: null, errorMessage:'' }
 
-        this.state = { lat: null, errorMessage:'' }
+    constructor(){
+        console.log('start constructor')
+        super()
+    }
+
+
+    componentDidMount(){
+        console.log('start ComponentDidMount')
 
         window.navigator.geolocation.getCurrentPosition(
             position => {
@@ -22,9 +28,12 @@ class App extends React.Component{
         )
     }
 
+
     // Classed Component have to extend React.Component
     // and override render methods
     render(){
+        console.log('start Render');
+
         if(this.state.errorMessage && !this.state.lat){
             return <div>Error: {this.state.errorMessage}</div>
         }
@@ -36,6 +45,12 @@ class App extends React.Component{
         return <div>Loading!</div>
 
     }
+
+    // Life Circle Methods
+    componentDidUpdate(){console.log('start ComponentDidUpdate')}
+    componentWillUnmount(){console.log('start ComponentWillUnmount')}
+        
+    
 }
 
 
