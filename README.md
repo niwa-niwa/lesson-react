@@ -13,3 +13,4 @@ You can know a topic and How to use with the README.md of each branch
 add a branch basic-jsx.  
 add a branch basic-components  
   using geo location
+  refactored and added comments
