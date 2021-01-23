@@ -1,13 +1,32 @@
 import React from 'react'
 
 class SearchBar extends React.Component{
+
+    state = { term:'Hi there' }
+
+    //onFormSubmit(event){} has not this.state.term
+    // avoid the issue right this
+    // onFormSubmit = (event) => {}
+    // or calling onSubmit = {(event)=>this.onFormSubmit(event)}
+    onFormSubmit = event => {
+        event.preventDefault()
+
+        // calling method that the parent defined
+        this.props.onSubmit(this.state.term)
+    }
+
+
     render() {
         return (
             <div className="ui segment">
-                <form className="ui form">
+                <form onSubmit={this.onFormSubmit} className="ui form">
                     <div className="field">
                         <label>Image Search</label>
-                        <input type="text" />
+                        <input
+                            type="text"
+                            value={this.state.term}
+                            onChange={e => this.setState({ term: e.target.value })}
+                        />
                     </div>
                 </form>
             </div>
