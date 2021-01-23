@@ -2,7 +2,7 @@ import React from 'react'
 
 class SearchBar extends React.Component{
 
-    state = { term:'Hi there' }
+    state = { term:'' }
 
     //onFormSubmit(event){} has not this.state.term
     // avoid the issue right this
