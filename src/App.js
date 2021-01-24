@@ -1,6 +1,6 @@
 import React from 'react'
 import Accordion from './components/Accordion'
-import Search from './components/Search'
+import Search from './components/Search.js'
 
 
 const items = [

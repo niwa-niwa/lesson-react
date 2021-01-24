@@ -6,7 +6,19 @@ const Search = () => {
 
 
     const [term, setTerm] = useState('programming')
+    const [debouncedTerm, setDebouncedTerm] = useState(term)
     const [results, setResults] = useState([])
+
+
+    useEffect(() => {
+        const timerId = setTimeout(() => {
+            setDebouncedTerm(term)
+        },1000)
+
+        return () => {
+            clearTimeout(timerId)
+        }
+    }, [term])
 
 
     useEffect(() => {
@@ -18,31 +30,14 @@ const Search = () => {
                     list: 'search',
                     origin: '*',
                     format: 'json',
-                    srsearch: term,
+                    srsearch: debouncedTerm,
                 }
             })
 
             setResults(data.query.search)
         }
-
-        if(term && !results.length){
-            // if search bar is empty it would be deleted list that already got them
-            search()
-        }else{
-            const timeoutId = setTimeout(() => {
-                console.log(term)
-                if (term) {
-                    search()
-                }
-            }, 500)
-
-            return () => {
-                console.log(timeoutId)
-                clearTimeout(timeoutId)
-            }
-        }
-
-    }, [term])
+        search()
+    }, [debouncedTerm])
 
 
     const renderedResults = results.map((result) => {
