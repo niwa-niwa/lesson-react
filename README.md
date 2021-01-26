@@ -24,4 +24,5 @@ You can know a topic and How to use with the README.md of each branch
 - react-hooks-navigation with routing
 - react-hooks-translate
 - react-hooks-wikiapi
-  
+#### add a branch redux-app-songs
+- using Redux
