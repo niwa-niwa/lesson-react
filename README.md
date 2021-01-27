@@ -26,3 +26,5 @@ You can know a topic and How to use with the README.md of each branch
 - react-hooks-wikiapi
 #### add a branch redux-app-songs
 - using Redux
+#### add a branch redux-app-blog
+- using async action 
