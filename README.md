@@ -28,3 +28,6 @@ You can know a topic and How to use with the README.md of each branch
 - using Redux
 #### add a branch redux-app-blog
 - using async action 
+- using lodash for resolved refetch
+#### add a branch redux-app-blog-better-fetching
+- using refactoried app-blog with chain
