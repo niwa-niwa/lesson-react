@@ -1,16 +1,27 @@
 import React from 'react'
 import LanguageContext from '../contexts/LanguageContext'
+import ColorContext from '../contexts/ColorContext'
 
 class Button extends React.Component{
     // LanguageContextをセットする
-    static contextType = LanguageContext
+    // static contextType = LanguageContext
 
     render(){
 
-        //セットしたcontextの値を取得する
-        const text = this.context === 'english' ? 'Submit' : 'Voorleggen'
+        //セットしたcontextの値を取得する for context アプローチ
+        // const text = this.context === 'english' ? 'Submit' : 'Voorleggen'
+
         return (
-            <button className="ui button primary">{text}</button>
+            <ColorContext.Consumer>
+                {(color)=>
+                    <button className={`ui button ${color}`}>
+                        {/* Consumerアプローチ */}
+                        <LanguageContext.Consumer>
+                            {(value) => value === 'english' ? 'Submit' : 'Voorleggen'}
+                        </LanguageContext.Consumer>
+                    </button>
+                }
+            </ColorContext.Consumer>
         )
     }
 }
