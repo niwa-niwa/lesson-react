@@ -33,3 +33,6 @@ You can know a topic and How to use with the README.md of each branch
 - using refactoried app-blog with chain
 #### add a branch context-provider
 - using context and provider with consumer
+#### add a branch yt-hooks-app
+- refactored Class components to Function components
+- refactored any functions to a custom hook that called useVideo
